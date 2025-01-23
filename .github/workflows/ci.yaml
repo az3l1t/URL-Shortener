@@ -19,6 +19,9 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Build and Test with Coverage Verification
+        run: ./gradlew build jacocoTestCoverageVerification
+
       - name: Run Tests
         run: ./gradlew test --no-daemon
 
