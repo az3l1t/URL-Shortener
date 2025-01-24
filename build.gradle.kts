@@ -43,6 +43,7 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 	testLogging.showStandardStreams = true
 	systemProperty("spring.main.web-application-type", "none")
+	systemProperty("spring.autoconfigure.exclude", "org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryAutoConfiguration")
 }
 
 val test by tasks.getting(Test::class) { }
