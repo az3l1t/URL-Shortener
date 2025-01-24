@@ -75,9 +75,9 @@ tasks.withType<JacocoReport> {
 tasks {
 	val jacocoCustomTestReport by creating(JacocoReport::class) {
 		reports {
-			xml.isEnabled = false
-			csv.isEnabled = false
-			html.isEnabled = true
+			xml.required.set(false)
+			csv.required.set(false)
+			html.required.set(true)
 		}
 	}
 
