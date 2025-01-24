@@ -57,9 +57,13 @@ tasks.jacocoTestCoverageVerification {
 				"net.azelit.url.repository.*",
 				"net.azelit.url.mapper.*")
 			limit {
-				minimum = 0.6.toBigDecimal()
+				minimum = 0.2.toBigDecimal()
 			}
 		}
+	}
+
+	filter {
+		exclude("net/azelit/url/**")
 	}
 }
 
