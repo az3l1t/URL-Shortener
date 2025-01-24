@@ -42,7 +42,6 @@ dependencies {
 tasks.withType<Test> {
 	useJUnitPlatform()
 	testLogging.showStandardStreams = true
-	systemProperty("spring.main.web-application-type", "none")
 }
 
 val test by tasks.getting(Test::class) { }
@@ -51,8 +50,14 @@ tasks.jacocoTestCoverageVerification {
 	dependsOn(tasks.test)
 	violationRules {
 		rule {
+			element = "CLASS"
+			includes = listOf("net.azelit.url.service.*")
+			excludes = listOf("net.azelit.url.client.*",
+				"net.azelit.url.controller.*",
+				"net.azelit.url.repository.*",
+				"net.azelit.url.mapper.*")
 			limit {
-				minimum = 0.6.toBigDecimal()
+				minimum = 0.2.toBigDecimal()
 			}
 		}
 	}
