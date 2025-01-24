@@ -80,7 +80,8 @@ tasks.withType<JacocoReport> {
 				"net/azelit/user_service/config",
 				"net/azelit/user_service/controller",
 				"net/azelit/user_service/dto",
-				"net/azelit/user_service/mapper"
+				"net/azelit/user_service/mapper",
+				"net/azelit/user_service/entity"
 			)
 		}
 	}
