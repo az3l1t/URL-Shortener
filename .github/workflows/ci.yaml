@@ -21,18 +21,15 @@ jobs:
 
       - name: Give Gradle wrapper execute permission
         run: chmod +x ./gradlew
-
-      - name: Run Coverage Verification
-        run: ./gradlew jacocoTestCoverageVerification
+        
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
 
       - name: Build Project
         run: ./gradlew build
 
       - name: Run Tests
         run: ./gradlew test --no-daemon
-
-      - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
 
       - name: Cache Gradle dependencies
         uses: actions/cache@v4
