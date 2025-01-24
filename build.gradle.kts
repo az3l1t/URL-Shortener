@@ -29,12 +29,29 @@ repositories {
 }
 
 dependencies {
+	/*
+		Starters SpringBoot
+	 */
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-data-redis")
 	implementation("org.springframework.boot:spring-boot-starter-web")
-	compileOnly("org.projectlombok:lombok")
+	implementation("org.springframework.boot:spring-boot-starter-data-redis")
+
+	/*
+		Java Database Connect
+	 */
 	runtimeOnly("org.postgresql:postgresql")
+	implementation("org.liquibase:liquibase-core")
+
+	/*
+		Utils
+	 */
+	compileOnly("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")
+
+	/*
+		Tests
+	 */
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
@@ -43,8 +60,6 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 	testLogging.showStandardStreams = true
 }
-
-val test by tasks.getting(Test::class) { }
 
 tasks.jacocoTestCoverageVerification {
 	dependsOn(tasks.test)
@@ -75,9 +90,9 @@ tasks.withType<JacocoReport> {
 tasks {
 	val jacocoCustomTestReport by creating(JacocoReport::class) {
 		reports {
-			xml.isEnabled = false
-			csv.isEnabled = false
-			html.isEnabled = true
+			xml.required.set(false)
+			csv.required.set(false)
+			html.required.set(true)
 		}
 	}
 
