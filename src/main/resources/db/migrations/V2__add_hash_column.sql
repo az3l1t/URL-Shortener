@@ -1,0 +1,2 @@
+ALTER TABLE url_mapping
+ADD COLUMN hash VARCHAR(255) UNIQUE;

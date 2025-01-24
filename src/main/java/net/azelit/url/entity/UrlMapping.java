@@ -29,6 +29,9 @@ public class UrlMapping {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
+    @Column(name = "hash", unique = true)
+    private String hash;
+
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_at")
