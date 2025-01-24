@@ -29,29 +29,12 @@ repositories {
 }
 
 dependencies {
-	/*
-		Starters SpringBoot
-	 */
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-data-redis")
 	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("org.springframework.boot:spring-boot-starter-data-redis")
-
-	/*
-		Java Database Connect
-	 */
-	runtimeOnly("org.postgresql:postgresql")
-	implementation("org.liquibase:liquibase-core")
-
-	/*
-		Utils
-	 */
 	compileOnly("org.projectlombok:lombok")
+	runtimeOnly("org.postgresql:postgresql")
 	annotationProcessor("org.projectlombok:lombok")
-
-	/*
-		Tests
-	 */
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
@@ -61,6 +44,8 @@ tasks.withType<Test> {
 	testLogging.showStandardStreams = true
 	systemProperty("spring.main.web-application-type", "none")
 }
+
+val test by tasks.getting(Test::class) { }
 
 tasks.jacocoTestCoverageVerification {
 	dependsOn(tasks.test)
@@ -81,8 +66,7 @@ tasks.withType<JacocoReport> {
 				"net/azelit/user_service/config",
 				"net/azelit/user_service/controller",
 				"net/azelit/user_service/dto",
-				"net/azelit/user_service/mapper",
-				"net/azelit/user_service/entity"
+				"net/azelit/user_service/mapper"
 			)
 		}
 	}
