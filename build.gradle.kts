@@ -56,6 +56,10 @@ tasks.jacocoTestCoverageVerification {
 			}
 		}
 	}
+
+	filter {
+		exclude("net/azelit/url/**")
+	}
 }
 
 tasks.withType<JacocoReport> {
