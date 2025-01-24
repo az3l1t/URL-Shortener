@@ -42,6 +42,7 @@ dependencies {
 tasks.withType<Test> {
 	useJUnitPlatform()
 	testLogging.showStandardStreams = true
+	systemProperty("spring.main.web-application-type", "none")
 }
 
 val test by tasks.getting(Test::class) { }
