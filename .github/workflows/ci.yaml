@@ -20,16 +20,13 @@ jobs:
           java-version: '17'
 
       - name: Give Gradle wrapper execute permission
-        run: chmod +x ./gradlew
-
-      - name: Build Project
-        run: ./gradlew build
-
-      - name: Run Tests
-        run: ./gradlew test --no-daemon
+        run: chmod +x ./gradlew\
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
+
+      - name: Run Tests
+        run: ./gradlew test --no-daemon
 
       - name: Cache Gradle dependencies
         uses: actions/cache@v4
