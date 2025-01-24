@@ -1,0 +1,6 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: azelit
+      sqlFile:
+        path: db/migrations/V1__create_url_mapping_table.sql
