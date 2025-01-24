@@ -59,6 +59,7 @@ dependencies {
 tasks.withType<Test> {
 	useJUnitPlatform()
 	testLogging.showStandardStreams = true
+	systemProperty("spring.main.web-application-type", "none")
 }
 
 tasks.jacocoTestCoverageVerification {
