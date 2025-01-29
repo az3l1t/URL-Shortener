@@ -36,4 +36,7 @@ public class UrlMapping {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    @Column(name = "expired_at")
+    private LocalDateTime expiredAt;
 }

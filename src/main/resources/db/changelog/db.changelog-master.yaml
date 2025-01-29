@@ -9,3 +9,8 @@ databaseChangeLog:
       author: azelit
       sqlFile:
         path: db/migrations/V2__add_hash_column.sql
+  - changeSet:
+      id: 3
+      author: azelit
+      sqlFile:
+        path: db/migrations/V3__expiring_column.sql
