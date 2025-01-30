@@ -13,4 +13,4 @@ databaseChangeLog:
       id: 3
       author: azelit
       sqlFile:
-        path: db/migrations/V3__expiring_column.sql
+        path: db/migrations/V3__expiring_url.sql
